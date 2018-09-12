@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit{
   loadedFeature = 'recipe';
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Recipe Book');
+  }
 
   ngOnInit() {
     firebase.initializeApp({
